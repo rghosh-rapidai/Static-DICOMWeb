@@ -1784,7 +1784,8 @@ if __name__ == "__main__":
         
         mip_image = sitk.MaximumProjection(slab_for_mip, projectionDimension=2)
     
-        output_volume =  sitk.Paste(output_volume, mip_image, destinationIndex=[0,0,output_slice], sourceIndex=[0,0,0], sourceSize=mip_image.GetSize())
+        # output_volume =  sitk.Paste(output_volume, mip_image, destinationIndex=[0,0,output_slice], sourceIndex=[0,0,0], sourceSize=mip_image.GetSize())
+        output_volume[:,:,output_slice] = mip_image
         cntr1 = cntr1 + mip_step_slices
 
 
